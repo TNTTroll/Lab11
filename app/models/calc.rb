@@ -1,3 +1,3 @@
 class Calc < ApplicationRecord
-    validates_uniqueness_of :n, :a
+    validates_uniqueness_of :a
 end

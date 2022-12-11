@@ -1,7 +1,18 @@
-<div style="width: 500px; padding: 20px; border-radius: 15px; margin: 100px auto; background: #adf; text-align: center; box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.5);">
+<style>
+    .container {
+        padding: 50px;
+        border-radius: 20px;
+        border: 5px solid #444;
+        margin: 100px;
+        color: #fff;
+        background-color: #333;
+        text-align: center;
+    }
+</style>
+
+<div class="container">
     <h3>Последнее вычисление:</h3>
-    <p>N: <%= @result.n %></p>
     <p>A: <%= @result.a %></p>
     <p>Created: <%= @result.created_at %></p>
-    <%= link_to "Повторить!", :number_input %> 
+    <%= link_to "Повторить", :number_input %>
 </div>
