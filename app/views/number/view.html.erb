@@ -1,0 +1,20 @@
+<div style="width: 300px; padding: 20px; border-radius: 15px; margin: 100px auto; background: #adf; text-align: center; box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.5);">
+    <h3>Результаты:</h3>
+    <p>Источник данных: <%= @source %></p>
+    <table class="table">
+        <tbody>
+            <%== '<tr><td colspan="2">НЕТ ПОСЛЕДОВАТЕЛЬНОСТЕЙ</td></tr>' if @count==0 %>
+            <tr>
+                <td>Всего:</td>
+                <td><%= @count %></td>
+            </tr>
+            <% @result.each_with_index do |numbers_list, i| %>
+                <tr <%= 'class=fw-bold' if i == 0 %>>
+                    <td><%= i+1 %></td>
+                    <td><%= numbers_list.join '->' %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= link_to "Повторить!", :number_input %> 
+</div>

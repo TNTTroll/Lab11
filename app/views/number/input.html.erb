@@ -1,0 +1,17 @@
+<div style="width: 390px; padding: 20px; border-radius: 15px; margin: 100px auto; background: #adf; text-align: center; box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.5);">
+    <%= form_tag("/number/view", :method => "get") do %>
+        <div class="mb-2">
+            <div class="mb-2">Число значений:</div>
+            <%= text_field_tag :n, "14", class: 'form-control' %>
+        </div>
+        <div class="mb-4">
+            <div class="mb-2">Значения:</div>
+            <%= text_area_tag :a, "0 1 5 5 5 10 20 25 -5 1 5 25 125 625", class: 'form-control' %>
+        </div>
+        <%= submit_tag "Найти последовательности!", class: "btn btn-primary mb-3" %>
+    <% end %>
+
+    <%= form_tag("/number/last_item", :method => "get") do %>
+        <%= submit_tag "Найти последнюю последовательности!", class: "btn btn-primary" %>
+    <% end %>
+</div>
