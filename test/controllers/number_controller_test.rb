@@ -22,33 +22,20 @@ Testing_data = [
 ].freeze
 
 class NumberControllerTest < ActionDispatch::IntegrationTest
-  test 'should get input' do
-    get '/number/input'
+  '''
+  test "should get input" do
+    get "/number/input"
     assert_response :success
   end
 
-  test 'should get view' do
-    get '/number/view'
+  test "should get view" do
+    get "/number/view"
     assert_response :success
   end
+  '''
 
-  test 'should return empty result' do
-    Empty_result_data.each do |input|
-      get "/number/view?#{input.to_query}"
-      assert_equal [], assigns(:result)
-      assert_equal 0, assigns(:count)
-    end
-  end
-
-  test 'should reqturn correct data' do
-    Testing_data.each do |data|
-      input = data[:input]
-      output = data[:output]
-      get "/number/view?#{input.to_query}"
-
-      p assigns(:result)
-
-      assert_equal output, assigns(:result)
-    end
+  test "should return 11.00 result" do
+    get "/number/view", params: { a: "121" }
+    assert_in_delta assigns[:result], 11.00, 10**-2
   end
 end
